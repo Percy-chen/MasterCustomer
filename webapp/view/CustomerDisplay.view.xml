@@ -1,0 +1,497 @@
+<mvc:View controllerName="MASTER.MasterCustomer.controller.CustomerDisplay" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table">
+	<App id="app">
+		<Page class="sapUiContentPadding" title="{i18n>appTitle}" showHeader="false">
+			<content>
+				<f:Form>
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanL="3" labelSpanM="3" emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="2"/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement>
+									<f:fields>
+										<l:HorizontalLayout>
+											<Text text="{i18n>Customer}:" width="4rem" textAlign="Begin"/>
+											<Input width="9rem" id="CustomerS" value="{/Sel/CustomerS}" editable="true"/>
+											<Text text="{i18n>To}" width="2em" textAlign="Center"/>
+											<Input width="9rem" id="CustomerE" value="{/Sel/CustomerE}" editable="true"/>
+										</l:HorizontalLayout>
+										<l:HorizontalLayout>
+											<Label text="{i18n>SalesOrganization}:" width="5rem" textAlign="Begin" required="true"/>
+											<Input width="9rem" id="SalesOrganizationS" value="{/Sel/SalesOrganizationS}" editable="true"/>
+											<Text text="{i18n>To}" width="2em" textAlign="Center"/>
+											<Input width="9rem" id="SalesOrganizationE" value="{/Sel/SalesOrganizationE}" editable="true"/>
+										</l:HorizontalLayout>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement>
+									<f:fields>
+										<l:HorizontalLayout>
+											<Text text="{i18n>CompanyCode}:" width="4rem" textAlign="Begin"/>
+											<Input width="9rem" id="CompanyCodeS" value="{/Sel/CompanyCodeS}" editable="true"/>
+											<Text text="{i18n>To}" width="2em" textAlign="Center"/>
+											<Input width="9rem" id="CompanyCodeE" value="{/Sel/CompanyCodeE}" editable="true"/>
+										</l:HorizontalLayout>
+										<l:HorizontalLayout>
+											<!--<Text text="业务员:" width="4rem" textAlign="Begin"/>-->
+											<!--<Input width="9rem" id="PersonNumberS" value="{/Sel/PersonNumberS}" editable="true"/>-->
+											<!--<Text text="至" width="2em" textAlign="Center"/>-->
+											<!--<Input width="9rem" id="PersonNumberE" value="{/Sel/PersonNumberE}" editable="true"/>-->
+										</l:HorizontalLayout>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</content>
+			<content>
+				<t:Table rows="{/CustomerList}" selectionMode="None" id="DisplayTable" visibleRowCount="12" >
+					<t:columns>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>Customer}"/>
+							<t:template>
+								<Text text="{Customer}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Begin" width="12rem">
+							<Label text="{i18n>CustomerName}"/>
+							<t:template>
+								<Text text="{CustomerName}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Begin" width="6rem">
+							<Label text="{i18n>SortField}"/>
+							<t:template>
+								<Text text="{SortField}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>SearchTerm2}"/>
+							<t:template>
+								<Text text="{SearchTerm2}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Begin" width="6rem">
+							<Label text="{i18n>CO}"/>
+							<t:template>
+								<Text text="{CO}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Begin" width="18rem">
+							<Label text="{i18n>CompanyAddress}"/>
+							<t:template>
+								<Text text="{CompanyAddress}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="4rem">
+							<Label text="{i18n>Country}"/>
+							<t:template>
+								<Text text="{Country}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="4rem">
+							<Label text="{i18n>Region}"/>
+							<t:template>
+								<Text text="{Region}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="7rem">
+							<Label text="{i18n>TaxJurisdiction}"/>
+							<t:template>
+								<Text text="{TaxJurisdiction}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="4rem">
+							<Label text="{i18n>Language}"/>
+							<t:template>
+								<Text text="{Language}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="8rem">
+							<Label text="{i18n>Telephone1}"/>
+							<t:template>
+								<Text text="{Telephone1}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="8rem">
+							<Label text="{i18n>Telephone2}"/>
+							<t:template>
+								<Text text="{Telephone2}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="8rem">
+							<Label text="{i18n>MobilePhone}"/>
+							<t:template>
+								<Text text="{MobilePhone}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="10rem">
+							<Label text="{i18n>FaxNumber}"/>
+							<t:template>
+								<Text text="{path:'FaxNumber'}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="8rem">
+							<Label text="{i18n>Mail1}"/>
+							<t:template>
+								<Text text="{Mail1}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="8rem">
+							<Label text="{i18n>Mail2}"/>
+							<t:template>
+								<Text text="{Mail2}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="8rem">
+							<Label text="{i18n>ShippingText}"/>
+							<t:template>
+								<Text text="{ShippingText}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="8rem">
+							<Label text="{i18n>ShippingAddress}"/>
+							<t:template>
+								<Text text="{ShippingAddress}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>TaxNumber}"/>
+							<t:template>
+								<Text text="{TaxNumber}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>SalesOrganization}"/>
+							<t:template>
+								<Text text="{SalesOrganization}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>DistributionChannel}"/>
+							<t:template>
+								<Text text="{DistributionChannel}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="4rem">
+							<Label text="{i18n>Division}"/>
+							<t:template>
+								<Text text="{Division}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>SalesDistrict}"/>
+							<t:template>
+								<Text text="{SalesDistrict}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>SalesOffice}"/>
+							<t:template>
+								<Text text="{SalesOffice}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>SalesGroup}"/>
+							<t:template>
+								<Text text="{SalesGroup}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="4rem">
+							<Label text="{i18n>Currency}"/>
+							<t:template>
+								<Text text="{Currency}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem" visible="false">
+							<Label text="{i18n>RateType}"/>
+							<t:template>
+								<Text text="{RateType}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>CustomerPriceGroup}"/>
+							<t:template>
+								<Text text="{CustomerPriceGroup}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>CustomerPricingProcedure}"/>
+							<t:template>
+								<Text text="{CustomerPricingProcedure}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>SupplyingPlant}"/>
+							<t:template>
+								<Text text="{SupplyingPlant}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>ShippingCondition}"/>
+							<t:template>
+								<Text text="{ShippingCondition}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>IncotermsClassification}"/>
+							<t:template>
+								<Text text="{IncotermsClassification}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="8rem">
+							<Label text="{i18n>IncotermsLocation1}"/>
+							<t:template>
+								<Text text="{IncotermsLocation1}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="8rem">
+							<Label text="{i18n>PaymentTerms}"/>
+							<t:template>
+								<Text text="{PaymentTerms}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="10rem">
+							<Label text="{i18n>PaymentTermsName}"/>
+							<t:template>
+								<Text text="{PaymentTermsName}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="8rem">
+							<Label text="{i18n>CustomerAccountAssignmentGr}"/>
+							<t:template>
+								<Text text="{CustomerAccountAssignmentGr}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>TaxClassific}"/>
+							<t:template>
+								<Text text="{CustomerTaxClassification}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>PersonNumber}"/>
+							<t:template>
+								<Text text="{PersonNumber}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="8rem">
+							<Label text="{i18n>PersonNumberName}"/>
+							<t:template>
+								<Text text="{PersonNumberName}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>CompanyCode}"/>
+							<t:template>
+								<Text text="{CompanyCode}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="8rem">
+							<Label text="{i18n>ReconciliationAccount}"/>
+							<t:template>
+								<Text text="{ReconciliationAccount}"/>
+							</t:template>
+						</t:Column>
+						<t:Column hAlign="Center" width="6rem">
+							<Label text="{i18n>PaymentTerms_01}"/>
+							<t:template>
+								<Text text="{PaymentTerms_01}"/>
+							</t:template>
+						</t:Column>
+					</t:columns>
+				</t:Table>
+				<!--<ScrollContainer height="auto" width="auto" vertical="false">-->
+				<!--	<Table id="DisplayTable" inset="false" items="{ path: '/CustomerList'}" sticky="ColumnHeaders" mode="None">-->
+				<!--		<columns>-->
+				<!--			<Column hAlign="Center" width="6rem" id="Customer">-->
+				<!--				<Label text="客户编码"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" width="10rem" id="CustomerName">-->
+				<!--				<Label text="客户名称"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="SortField" width="8rem">-->
+				<!--				<Label text="客户简称"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" width="8rem" id="SearchTerm2">-->
+				<!--				<Label text="旧客户编码"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="CO" width="6rem">-->
+				<!--				<Label text="代收人"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="CompanyAddress" width="8rem">-->
+				<!--				<Label text="公司地址"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="Country" width="4rem">-->
+				<!--				<Label text="国家"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="Region" width="4rem">-->
+				<!--				<Label text="地区"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="TaxJurisdiction" width="8rem">-->
+				<!--				<Label text="税收管辖区"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="Language" width="4rem">-->
+				<!--				<Label text="语言"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="Telephone1" width="8rem">-->
+				<!--				<Label text="电话一"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="Telephone2" width="8rem">-->
+				<!--				<Label text="电话二"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="MobilePhone" width="8rem">-->
+				<!--				<Label text="移动电话"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="FaxNumber" width="8rem">-->
+				<!--				<Label text="传真"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="Mail1" width="10rem">-->
+				<!--				<Label text="E-mail一"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="Mail2" width="10rem">-->
+				<!--				<Label text="E-mail二"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="ShippingText" width="8rem">-->
+				<!--				<Label text="出货备注"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="ShippingAddress" width="8rem">-->
+				<!--				<Label text="出货地址"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="TaxNumber" width="8rem">-->
+				<!--				<Label text="增值税号"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="SalesOrganization" width="6rem">-->
+				<!--				<Label text="销售组织"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="DistributionChannel" width="6rem">-->
+				<!--				<Label text="分销渠道"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="Division" width="6rem">-->
+				<!--				<Label text="产品组"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="SalesDistrict" width="6rem">-->
+				<!--				<Label text="销售区域"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="SalesOffice" width="6rem">-->
+				<!--				<Label text="销售部门"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="SalesGroup" width="6rem">-->
+				<!--				<Label text="销售组"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="Currency" width="4rem">-->
+				<!--				<Label text="货币"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="RateType" width="4rem">-->
+				<!--				<Label text="汇率类型"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="CustomerPriceGroup" width="6rem">-->
+				<!--				<Label text="客户等级"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="CustomerPricingProcedure" width="8rem">-->
+				<!--				<Label text="客户定价过程"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="SupplyingPlant" width="6rem">-->
+				<!--				<Label text="交货工厂"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="ShippingCondition" width="8rem">-->
+				<!--				<Label text="装运条件"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="IncotermsClassification" width="8rem">-->
+				<!--				<Label text="国际贸易条款"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="IncotermsLocation1" width="8rem">-->
+				<!--				<Label text="国际贸易条款位置1"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="PaymentTerms" width="8rem">-->
+				<!--				<Label text="销售付款条件"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="PaymentTermsName" width="10rem">-->
+				<!--				<Label text="销售付款条件描述"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="CustomerAccountAssignmentGr" width="8rem">-->
+				<!--				<Label text="客户科目分配组"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="TaxClassific" width="6rem">-->
+				<!--				<Label text="税分类"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="PersonNumber" width="8rem">-->
+				<!--				<Label text="业务员编号"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="PersonNumberName" width="10rem">-->
+				<!--				<Label text="业务员名字"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="CompanyCode" width="6rem">-->
+				<!--				<Label text="公司代码"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="ReconciliationAccount" width="8rem">-->
+				<!--				<Label text="对账科目"/>-->
+				<!--			</Column>-->
+				<!--			<Column hAlign="Center" id="PaymentTerms_01" width="8rem">-->
+				<!--				<Label text="财务付款条件"/>-->
+				<!--			</Column>-->
+				<!--		</columns>-->
+				<!--		<items>-->
+				<!--			<ColumnListItem>-->
+				<!--				<cells>-->
+				<!--					<Text text="{Customer}"/>-->
+				<!--					<Text text="{CustomerName}"/>-->
+				<!--					<Text text="{SortField}"/>-->
+				<!--					<Text text="{SearchTerm2}"/>-->
+				<!--					<Text text="{CO}"/>-->
+				<!--					<Text text="{CompanyAddress}"/>-->
+				<!--					<Text text="{Country}"/>-->
+				<!--					<Text text="{Region}"/>-->
+				<!--					<Text text="{TaxJurisdiction}"/>-->
+				<!--					<Text text="{Language}"/>-->
+				<!--					<Text text="{Telephone1}"/>-->
+				<!--					<Text text="{Telephone2}"/>-->
+				<!--					<Text text="{MobilePhone}"/>-->
+				<!--					<Text text="{FaxNumber}"/>-->
+				<!--					<Text text="{Mail1}"/>-->
+				<!--					<Text text="{Mail2}"/>-->
+				<!--					<Text text="{ShippingText}"/>-->
+				<!--					<Text text="{ShippingAddress}"/>-->
+				<!--					<Text text="{TaxNumber}"/>-->
+				<!--					<Text text="{SalesOrganization}"/>-->
+				<!--					<Text text="{DistributionChannel}"/>-->
+				<!--					<Text text="{Division}"/>-->
+				<!--					<Text text="{SalesDistrict}"/>-->
+				<!--					<Text text="{SalesOffice}"/>-->
+				<!--					<Text text="{SalesGroup}"/>-->
+				<!--					<Text text="{Currency}"/>-->
+				<!--					<Text text="{RateType}"/>-->
+				<!--					<Text text="{CustomerPriceGroup}"/>-->
+				<!--					<Text text="{CustomerPricingProcedure}"/>-->
+				<!--					<Text text="{SupplyingPlant}"/>-->
+				<!--					<Text text="{ShippingCondition}"/>-->
+				<!--					<Text text="{IncotermsClassification}"/>-->
+				<!--					<Text text="{IncotermsLocation1}"/>-->
+				<!--					<Text text="{PaymentTerms}"/>-->
+				<!--					<Text text="{PaymentTermsName}"/>-->
+				<!--					<Text text="{CustomerAccountAssignmentGr}"/>-->
+				<!--					<Text text="{TaxClassific}"/>-->
+				<!--					<Text text="{PersonNumber}"/>-->
+				<!--					<Text text="{PersonNumberName}"/>-->
+				<!--					<Text text="{CompanyCode}"/>-->
+				<!--					<Text text="{ReconciliationAccount}"/>-->
+				<!--					<Text text="{PaymentTerms_01}"/>-->
+				<!--				</cells>-->
+				<!--			</ColumnListItem>-->
+				<!--		</items>-->
+				<!--	</Table>-->
+				<!--</ScrollContainer>-->
+			</content>
+			<footer>
+				<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button text="{i18n>Search}" id="butSubmit" type="Accept" press="handleSearch" width="6rem"/>
+					<Button text="{i18n>DownLoad}" id="butDownload" type="Accept" press="handleDownload" width="6rem" visible="true"/>
+				</OverflowToolbar>
+			</footer>
+		</Page>
+	</App>
+</mvc:View>

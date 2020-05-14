@@ -1,0 +1,176 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "MASTER.MasterCustomer",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"CUSTOMER": {
+				"uri": "/destinations/WT_S4HC/YY1_MASTER_CUSTOMER_CDS/",
+				"type": "OData",
+				"settings": {
+					"annotations": []
+				}
+			},
+			"BUSINESSPARTNER": {
+				"uri": "/destinations/WT_S4HC/API_BUSINESS_PARTNER/",
+				"type": "OData",
+				"settings": {
+					"annotations": []
+				}
+			},
+			"CUSTOMERPAYMENTTERMS": {
+				"uri": "/destinations/WT_S4HC/YY1_CUSTOMERPAYMENTTERMS_CDS/",
+				"type": "OData",
+				"settings": {
+					"annotations": []
+				}
+			},
+			"SALESMAN": {
+				"uri": "/destinations/WT_S4HC/YY1_SALEMAN_CDS/",
+				"type": "OData",
+				"settings": {
+					"annotations": []
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "MASTER.MasterCustomer.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "MASTER.MasterCustomer.i18n.i18n"
+				}
+			},
+			"CUSTOMER": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request",
+					"useBatch": true
+				},
+				"dataSource": "CUSTOMER",
+				"preload": true
+			},
+			"BUSINESSPARTNER": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request",
+					"useBatch": true
+				},
+				"dataSource": "BUSINESSPARTNER",
+				"preload": true
+			},
+			"CUSTOMERPAYMENTTERMS": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request",
+					"useBatch": true
+				},
+				"dataSource": "CUSTOMERPAYMENTTERMS",
+				"preload": true
+			},
+			"SALESMAN": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request",
+					"useBatch": true
+				},
+				"dataSource": "SALESMAN",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "MASTER.MasterCustomer.view",
+				"controlAggregation": "pages",
+				"controlId": "appNavContainer",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "CustomerDisplay",
+					"pattern": "",
+					"target": [
+						"CustomerDisplay"
+					]
+				}
+			],
+			"targets": {
+				"CustomerDisplay": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "CustomerDisplay",
+					"viewName": "CustomerDisplay"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}
